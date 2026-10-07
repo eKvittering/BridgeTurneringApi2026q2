@@ -25,7 +25,6 @@ namespace BridgeTourneringLib.Models
 		{
 			
 		}
-
 		public SectionTeam(int id, int mainTournamentId, int? sectionId, int? teamNo, int? startScore, int? adjustmentMissing, int? adjustmentOther, int? regulationScore, int? tieBreakerTournamnent, int? transferScore, int? transferBoards, int? tieBreakAdd)
 		{
 			ID = id;

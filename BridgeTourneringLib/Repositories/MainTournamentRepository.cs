@@ -1,4 +1,5 @@
-﻿using BridgeTourneringLib.Models;
+﻿using BridgeTourneringLib.Interfaces;
+using BridgeTourneringLib.Models;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace BridgeTourneringLib.Repositories
 {
-	public class MainTournamentRepository
+	public class MainTournamentRepository : IMainTournamentRepository
 	{
 		private string connectionString = Secret.ConnectionString;
 		private readonly string selectSql;
@@ -19,7 +20,7 @@ namespace BridgeTourneringLib.Repositories
 			selectSql = "SELECT ID, NAME, DESCRIPTION, TOURNAMENTFORM, COMMONTOP, FKCLUBID, INCLUBCLUBNAME, USELEADS, STRENGTHGROUPCOUNT, LASTCHANGEDBY, LAST_CHANGED_BY, LAST_CHANGED_DATE, NUMBEROFGROUPS, NUMBEROFPLAYINGDAYS, IS_VISIBLE, DO_WEB_PUBLISH, IS_FLEXIBLE, FLEXIBLEPERCENT FROM club" + clubNo + ".MAINTOURNAMENT";
 		}
 
-		public async Task<IEnumerable<MainTournament>> GetMainTournament()
+		public async Task<IEnumerable<MainTournament>> GetMainTournamentAsync()
 		{
 			List<MainTournament> mainTournaments = new List<MainTournament>();
 			using (SqlConnection connect = new SqlConnection(connectionString))

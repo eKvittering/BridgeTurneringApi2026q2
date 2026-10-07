@@ -30,7 +30,6 @@ namespace BridgeTourneringLib.Models
 		{
 			
 		}
-
 		public MainTournament(int id, string? name, string? description, int? tournamentForm, int? commonTop, int? clubID, int? includeClubName, int? useLeads, int? strengthGroupCount, string? lastChangedBy, DateOnly? lastChangedDate, int? numberOfGroups, int? numberOfPlayingDays, int? isVisible, int? doWebPublish, int? isFlexible, int? flexiblePercent)
 		{
 			ID = id;

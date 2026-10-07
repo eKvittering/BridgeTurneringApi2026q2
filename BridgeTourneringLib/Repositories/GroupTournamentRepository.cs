@@ -1,4 +1,5 @@
-﻿using BridgeTourneringLib.Models;
+﻿using BridgeTourneringLib.Interfaces;
+using BridgeTourneringLib.Models;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace BridgeTourneringLib.Repositories
 {
-	public class GroupTournamentRepository
+	public class GroupTournamentRepository : IGroupTournamentRepository
 	{
 		private string connectionString = Secret.ConnectionString;
 		private readonly string selectByMTID;
@@ -54,7 +55,7 @@ namespace BridgeTourneringLib.Repositories
 								int? vpScaleType = reader.IsDBNull("VPSCALETYPE") ? null : reader.GetInt32("VPSCALETYPE");
 								int? tournamentTeamType = reader.IsDBNull("TOURNAMENTTEAMTYPE") ? null : reader.GetInt32("TOURNAMENTTEAMTYPE");
 								int? tournamentMatchPointType = reader.IsDBNull("TOURNAMENTMATCHPOINTTYPE") ? null : reader.GetInt32("TOURNAMENTMATCHPOINTTYPE");
-								int? tournamentPairCalcType = reader.IsDBNull("TOURNAMENTPAIRCALCTYPE") ? null : reader.GetInt32("TOURNAMENTPAIRCALCTYPE"); 
+								int? tournamentPairCalcType = reader.IsDBNull("TOURNAMENTPAIRCALCTYPE") ? null : reader.GetInt32("TOURNAMENTPAIRCALCTYPE");
 								int? giveHacPrizes = reader.IsDBNull("GIVEHACPRIZES") ? null : reader.GetInt16("GIVEHACPRIZES");
 								int? autoTransferScore = reader.IsDBNull("AUTOTRANSFERSCORES") ? null : reader.GetInt16("AUTOTRANSFERSCORES");
 								int? monradStartRound = reader.IsDBNull("MONRADSTARTROUND") ? null : reader.GetInt32("MONRADSTARTROUND");

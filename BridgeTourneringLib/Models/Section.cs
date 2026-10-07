@@ -19,7 +19,6 @@ namespace BridgeTourneringLib.Models
 		{
 			
 		}
-
 		public Section(int id, int? sectionNo, DateTime? startTime, DateTime? endTime, int? startRoundNo, int? endRoundNo)
 		{
 			ID = id;

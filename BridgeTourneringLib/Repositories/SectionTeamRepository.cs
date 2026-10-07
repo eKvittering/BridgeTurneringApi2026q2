@@ -1,4 +1,5 @@
-﻿using BridgeTourneringLib.Models;
+﻿using BridgeTourneringLib.Interfaces;
+using BridgeTourneringLib.Models;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace BridgeTourneringLib.Repositories
 {
-	public class SectionTeamRepository
+	public class SectionTeamRepository : ISectionTeamRepository
 	{
 		private string connectionString = Secret.ConnectionString;
 		private readonly string selectBySectionID;
