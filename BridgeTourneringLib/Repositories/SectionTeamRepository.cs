@@ -52,6 +52,7 @@ namespace BridgeTourneringLib.Repositories
 								SectionTeam sectionTeam = new SectionTeam(teamId, sectionId, mainTournamentTeamId, teamNo, startScore, adjustmentMissing, adjustmentOther, regulationScore, tieBreakTournament, transferScore, transferBoards, transferPercent, tieBreakAdd);
 								sectionTeams.Add(sectionTeam);
 							}
+							reader.Close();
 						}
 					}
 				}

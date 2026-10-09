@@ -42,6 +42,7 @@ namespace BridgeTourneringLib.Repositories
 								MainTournamentTeam mainTournamentTeam = new MainTournamentTeam(teamId, mainTournamentTeamId, teamNo, teamName, tournamentType);
 								mainTournamentTeams.Add(mainTournamentTeam);
 							}
+							reader.Close();
 						}
 					}
 				}

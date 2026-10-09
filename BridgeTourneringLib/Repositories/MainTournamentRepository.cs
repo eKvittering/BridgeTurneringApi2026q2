@@ -100,6 +100,7 @@ namespace BridgeTourneringLib.Repositories
 								int? flexiblePercent = reader.IsDBNull("FLEXIBLEPERCENT") ? null : reader.GetInt32("FLEXIBLEPERCENT");
 								mainTournament = new MainTournament(mainTournamentId, name, description, tournamentForm, commonTop, clubId, inClubName, useLeads, strengthGroupCount, lastChangedBy, lastChangedDate, numberOfGroups, numberOfPlayingDays, isVisible, doWebPublish, isFlexible, flexiblePercent);
 							}
+							reader.Close();
 						}
 					}
 				}

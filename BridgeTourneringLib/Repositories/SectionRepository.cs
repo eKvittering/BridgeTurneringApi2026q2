@@ -44,6 +44,7 @@ namespace BridgeTourneringLib.Repositories
 								Section section = new Section(sectionId, sectionNo, startTime, endTime, startRoundNo, endRoundNo);
 								sections.Add(section);
 							}
+							reader.Close();
 						}
 					}
 				}

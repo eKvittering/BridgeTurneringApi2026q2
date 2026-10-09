@@ -46,6 +46,7 @@ namespace BridgeTourneringLib.Repositories
 								RoundTeam roundTeam = new RoundTeam(roundNo, tableNo, northTeamNo, nsTeam, eastTeamId, ewTeam);
 								roundTeams.Add(roundTeam);
 							}
+							reader.Close();
 						}
 					}
 				}

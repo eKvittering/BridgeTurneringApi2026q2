@@ -56,6 +56,7 @@ namespace BridgeTourneringLib.Repositories
 								Result result = new Result(resultId, matchId, boardId, boardGroup, boardNo, biddingSequence, contract, lead, matchResult, calculatedScoreNS, calculatedScoreNSPCT, calculatedScoreEW, calculatedScoreEWPCT, declarer, doubling, tricks, resultCompleted, excludeGame, boardCompared);
 								results.Add(result);
 							}
+							reader.Close();
 						}
 					}
 				}

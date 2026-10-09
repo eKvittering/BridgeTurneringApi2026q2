@@ -51,6 +51,7 @@ namespace BridgeTourneringLib.Repositories
 								RoundMatch roundMatch = new RoundMatch(id, roundId, tableNo, northTeamNo, northSectionTeamId, eastTeamNo, eastSectionTeamId, southTeamNo, southSectionTeamId, westTeamNo, westSectionTeamId);
 								roundMatches.Add(roundMatch);
 							}
+							reader.Close();
 						}
 					}
 				}

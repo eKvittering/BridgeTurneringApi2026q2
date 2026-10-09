@@ -44,6 +44,7 @@ namespace BridgeTourneringLib.Repositories
 								Round round = new Round(roundId, sectionId, roundNo, halfNo, startTime, endTime, startBoard);
 								rounds.Add(round);
 							}
+							reader.Close();
 						}
 					}
 				}

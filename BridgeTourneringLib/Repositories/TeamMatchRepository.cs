@@ -48,6 +48,7 @@ namespace BridgeTourneringLib.Repositories
 								TeamMatch teamMatch = new TeamMatch(roundNo, tableNo, team1No, team1Name, team2No, team2Name, team1Imp, team2Imp, team1Vp, team2Vp);
 								teamMatches.Add(teamMatch);
 							}
+							reader.Close();
 						}
 					}
 				}

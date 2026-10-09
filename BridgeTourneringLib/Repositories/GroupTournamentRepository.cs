@@ -79,6 +79,7 @@ namespace BridgeTourneringLib.Repositories
 								GroupTournament groupTournament = new GroupTournament(groupTournamentId, mainTournamentId, groupNo, description, tournamentType, numberOfTeams, numberOfSections, numberOfRounds, numberOfTables, boardsPerRound, halvesPerMatch, isMitchell, isMonrad, registerMP, useBoardSpec, movementPlanID, calculateHac, waveGroup, vpScaleType, tournamentTeamType, tournamentPairCalcType, tournamentMatchPointType, giveHacPrizes, autoTransferScore, monradStartRound, monradRanking, specialTournamentID, inputScore, inputScoreByten, saveScore, traveler, travelerByGameNo, placementPercent, groupTournamentNo, mpStrengthGroup, startNotes, resultNotes, calculateMulti, simplifiedHac, knockoutType, lastChangedBy, lastChangedDate);
 								groupTournaments.Add(groupTournament);
 							}
+							reader.Close();
 						}
 					}
 				}
