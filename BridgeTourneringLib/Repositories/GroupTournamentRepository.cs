@@ -49,7 +49,7 @@ namespace BridgeTourneringLib.Repositories
 								int? isMonrad = reader.IsDBNull("ISMONRAD") ? null : reader.GetInt16("ISMONRAD");
 								int? registerMP = reader.IsDBNull("REGISTERMP") ? null : reader.GetInt16("REGISTERMP");
 								int? useBoardSpec = reader.IsDBNull("USEBOARDSPEC") ? null : reader.GetInt16("USEBOARDSPEC");
-								int? movementPlanID = reader.IsDBNull("MOVEMENTPLANID") ? null : reader.GetInt32("MOVEMENTPLANID");
+								int? movementPlanID = reader.IsDBNull("FKMOVEMENTPLANID") ? null : reader.GetInt32("FKMOVEMENTPLANID");
 								int? calculateHac = reader.IsDBNull("CALCULATEHAC") ? null : reader.GetInt16("CALCULATEHAC");
 								int? waveGroup = reader.IsDBNull("WAVEGROUP") ? null : reader.GetInt32("WAVEGROUP");
 								int? vpScaleType = reader.IsDBNull("VPSCALETYPE") ? null : reader.GetInt32("VPSCALETYPE");
@@ -77,6 +77,7 @@ namespace BridgeTourneringLib.Repositories
 								string? lastChangedBy = reader.IsDBNull("LAST_CHANGED_BY") ? null : reader.GetString("LAST_CHANGED_BY");
 								DateTime? lastChangedDate = reader.IsDBNull("LAST_CHANGED_DATE") ? null : reader.GetDateTime("LAST_CHANGED_DATE");
 								GroupTournament groupTournament = new GroupTournament(groupTournamentId, mainTournamentId, groupNo, description, tournamentType, numberOfTeams, numberOfSections, numberOfRounds, numberOfTables, boardsPerRound, halvesPerMatch, isMitchell, isMonrad, registerMP, useBoardSpec, movementPlanID, calculateHac, waveGroup, vpScaleType, tournamentTeamType, tournamentPairCalcType, tournamentMatchPointType, giveHacPrizes, autoTransferScore, monradStartRound, monradRanking, specialTournamentID, inputScore, inputScoreByten, saveScore, traveler, travelerByGameNo, placementPercent, groupTournamentNo, mpStrengthGroup, startNotes, resultNotes, calculateMulti, simplifiedHac, knockoutType, lastChangedBy, lastChangedDate);
+								groupTournaments.Add(groupTournament);
 							}
 						}
 					}

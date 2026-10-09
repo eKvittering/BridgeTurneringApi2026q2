@@ -31,8 +31,8 @@ namespace BridgeTourneringLib.Repositories
 					await connect.OpenAsync();
 					using (SqlCommand command = new SqlCommand(selectByRoundIdTuple, connect))
 					{
-						command.Parameters.AddWithValue("@ROUND1", roundId1);
-						command.Parameters.AddWithValue("@ROUND2", roundId2);
+						command.Parameters.AddWithValue("@ROUNDID1", roundId1);
+						command.Parameters.AddWithValue("@ROUNDID2", roundId2);
 						using (SqlDataReader reader = await command.ExecuteReaderAsync())
 						{
 							while (await reader.ReadAsync())

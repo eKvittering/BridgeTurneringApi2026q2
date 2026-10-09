@@ -7,8 +7,6 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 builder.Services.AddSwaggerGen();
 
-var app = builder.Build();
-
 builder.Services.AddCors(options =>
 {
 	options.AddPolicy("allowGet",
@@ -22,6 +20,8 @@ builder.Services.AddCors(options =>
 				.AllowAnyMethod()
 				.AllowAnyHeader());
 });
+
+var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 app.MapOpenApi();

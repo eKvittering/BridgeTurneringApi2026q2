@@ -30,7 +30,7 @@ namespace BridgeTourneringLib.Repositories
 					await connect.OpenAsync();
 					using (SqlCommand command = new SqlCommand(selectSql, connect))
 					{
-						command.Parameters.AddWithValue("@GROUPTOURNAMENTID", mainTournamentTeamId);
+						command.Parameters.AddWithValue("@MAINTOURNAMENTTEAMID", mainTournamentTeamId);
 						using (SqlDataReader reader = await command.ExecuteReaderAsync())
 						{
 							while (await reader.ReadAsync())
@@ -38,7 +38,7 @@ namespace BridgeTourneringLib.Repositories
 								int teamId = reader.GetInt32("ID");
 								int? teamNo = reader.IsDBNull("TEAMNO") ? null : reader.GetInt32("TEAMNO");
 								string? teamName = reader.IsDBNull("TEAMNAME") ? null : reader.GetString("TEAMNAME");
-								int? tournamentType = reader.IsDBNull("TOURNAMENTTYPE") ? null : reader.GetInt32("TOURNAMENETTYPE");
+								int? tournamentType = reader.IsDBNull("TOURNAMENTTYPE") ? null : reader.GetInt32("TOURNAMENTTYPE");
 								MainTournamentTeam mainTournamentTeam = new MainTournamentTeam(teamId, mainTournamentTeamId, teamNo, teamName, tournamentType);
 								mainTournamentTeams.Add(mainTournamentTeam);
 							}

@@ -39,7 +39,7 @@ namespace BridgeTourneringLib.Repositories
 								int? sectionNo = reader.IsDBNull("SECTIONNO") ? null : reader.GetInt32("SECTIONNO");
 								DateTime? startTime = reader.IsDBNull("STARTTIME") ? null : reader.GetDateTime("STARTTIME");
 								DateTime? endTime = reader.IsDBNull("ENDTIME") ? null : reader.GetDateTime("ENDTIME");
-								int? startRoundNo = reader.IsDBNull("STARTROUND") ? null : reader.GetInt32("STARTROUNDNO");
+								int? startRoundNo = reader.IsDBNull("STARTROUNDNO") ? null : reader.GetInt32("STARTROUNDNO");
 								int? endRoundNo = reader.IsDBNull("ENDROUNDNO") ? null : reader.GetInt32("ENDROUNDNO");
 								Section section = new Section(sectionId, sectionNo, startTime, endTime, startRoundNo, endRoundNo);
 								sections.Add(section);

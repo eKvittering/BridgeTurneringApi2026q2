@@ -29,7 +29,24 @@ namespace BridgeTourneringREST.Controllers
 			}
 		}
 
-		[HttpGet("{clubNo}/Maintournaments/{mainTournamentId}")]
+		[HttpGet("{clubNo}/MainTournaments/{mainTournamentId}")]
+		[ProducesResponseType(StatusCodes.Status200OK)]
+		[ProducesResponseType(StatusCodes.Status404NotFound)]
+		public async Task<ActionResult<MainTournament>> GetMainTournamentByID(string clubNo, int mainTournamentId)
+		{
+			mainTournamentRepo = new MainTournamentRepository(clubNo);
+			MainTournament result = await mainTournamentRepo.GetMainTournamentByIDAsync(mainTournamentId);
+			if (result == null)
+			{
+				return NotFound();
+			}
+			else
+			{
+				return Ok(result);
+			}
+		}
+
+		[HttpGet("{clubNo}/MainTournamentTeams/{mainTournamentId}")]
 		[ProducesResponseType(StatusCodes.Status200OK)]
 		[ProducesResponseType(StatusCodes.Status204NoContent)]
 		public async Task<ActionResult<IEnumerable<MainTournamentTeam>>> GetMainTournamentTeams(string clubNo, int mainTournamentId)

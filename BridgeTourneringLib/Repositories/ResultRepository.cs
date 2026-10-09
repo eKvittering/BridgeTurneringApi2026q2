@@ -1,4 +1,5 @@
-﻿using BridgeTourneringLib.Models;
+﻿using BridgeTourneringLib.Interfaces;
+using BridgeTourneringLib.Models;
 using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace BridgeTourneringLib.Repositories
 {
-	public class ResultRepository
+	public class ResultRepository : IResultRepository
 	{
 		private string connectionString = Secret.ConnectionString;
 		private readonly string selectByMatchID;
@@ -26,7 +27,7 @@ namespace BridgeTourneringLib.Repositories
 			{
 				try
 				{
-					connect.OpenAsync();
+					await connect.OpenAsync();
 					using (SqlCommand command = new SqlCommand(selectByMatchID, connect))
 					{
 						command.Parameters.AddWithValue("@MATCHID", matchId);
@@ -34,8 +35,8 @@ namespace BridgeTourneringLib.Repositories
 						{
 							while (await reader.ReadAsync())
 							{
-								int resultId = reader.GetInt32("ID"); 
-								int? boardId = reader.IsDBNull("BOARDID") ? null : reader.GetInt32("BOARDID"); 
+								int resultId = reader.GetInt32("ID");
+								int? boardId = reader.IsDBNull("FKBOARDID") ? null : reader.GetInt32("FKBOARDID");
 								int? boardGroup = reader.IsDBNull("BOARDGROUP") ? null : reader.GetInt32("BOARDGROUP");
 								int? boardNo = reader.IsDBNull("BOARDNO") ? null : reader.GetInt32("BOARDNO");
 								string? biddingSequence = reader.IsDBNull("BIDDINGSEQUENCE") ? null : reader.GetString("BIDDINGSEQUENCE");
@@ -53,6 +54,7 @@ namespace BridgeTourneringLib.Repositories
 								int? excludeGame = reader.IsDBNull("EXCLUDEGAME") ? null : reader.GetInt16("EXCLUDEGAME");
 								int? boardCompared = reader.IsDBNull("BOARDCOMPARED") ? null : reader.GetInt16("BOARDCOMPARED");
 								Result result = new Result(resultId, matchId, boardId, boardGroup, boardNo, biddingSequence, contract, lead, matchResult, calculatedScoreNS, calculatedScoreNSPCT, calculatedScoreEW, calculatedScoreEWPCT, declarer, doubling, tricks, resultCompleted, excludeGame, boardCompared);
+								results.Add(result);
 							}
 						}
 					}
